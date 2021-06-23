@@ -9,8 +9,8 @@ FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 COPY ["SampleWebApp.csproj", "SampleWebApp/"]
 RUN dotnet restore "SampleWebApp/SampleWebApp.csproj"
-COPY . .
 WORKDIR "/src/SampleWebApp"
+COPY . .
 RUN dotnet build "SampleWebApp.csproj" -c Release -o /app/build
 
 FROM build AS publish
