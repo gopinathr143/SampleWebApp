@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "mykubernate-4050"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "mykubernate-4050"
+  template:
+    metadata:
+      labels:
+        app: "mykubernate-4050"
+    spec:
+      containers:
+        - name: "mykubernate-4050"
+          image: "gopicontainerregistery.azurecr.io/mykubernate"
+          ports:
+          - containerPort: 80
